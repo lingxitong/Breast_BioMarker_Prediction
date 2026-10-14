@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "breast-biomarker-prediction"
+version = "0.1.0"
+description = "Patient-grouped multi-task query MIL for breast H&E biomarkers"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.2,<3",
+    "numpy>=1.24,<3",
+    "pandas>=2.0,<4",
+    "h5py>=3.9,<4",
+    "scikit-learn>=1.3,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+include = ["biomarkers*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
